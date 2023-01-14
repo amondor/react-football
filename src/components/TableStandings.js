@@ -1,15 +1,17 @@
 import React from "react";
+import LeagueCard from "./LeagueCard";
+
 
 export default function TableStandings(props) {
  
   return (
 
-    <div className=" w-full text-center">
+    <div className=" mt-5 w-full text-center">
     
      
       <div className="w-4/5  mx-auto overflow-x-scroll xl:overflow-x-hidden">
-
-      <table className="table-fixed w-full">
+      <LeagueCard />
+      <table className="table-fixed w-full mt-5">
         <thead className="bg-blue-200">
           <tr className="justify-between">
           <th className="ml-14 ">Classement</th>
@@ -31,18 +33,29 @@ export default function TableStandings(props) {
               return (
                 <tr
                 key={standing.rank}>
-                        <td>{standing.rank} <img src={standing.team.logo} alt="" width={50}  /></td>
-                        <td>{standing.team.name}
+                        <td className="px-5 py-5  border-b border-gray-200 w-32 bg-white text-sm">
+                         <div className="flex items-center">
+                          <div className="flex-shrink-0 w-10">
+                          {standing.rank}
+                          </div>
+                          <div className="ml-3 w-10 ">
+                         <img src={standing.team.logo} alt="" width={50}  />
+
+                          </div>
+
+                         </div>
+                         </td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.team.name}
                         </td>
-                        <td>{standing.all.played}</td>
-                        <td>{standing.all.win}</td>
-                        <td>{standing.all.draw}</td>
-                        <td>{standing.all.lose}</td>
-                        <td>{standing.all.goals.for}</td>
-                        <td>{standing.all.goals.against}</td>
-                        <td>{standing.goalsDiff}</td>
-                        <td>{standing.points}</td>
-                        <td>{standing.form}</td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.all.played}</td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.all.win}</td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.all.draw}</td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.all.lose}</td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.all.goals.for}</td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.all.goals.against}</td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.goalsDiff}</td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.points}</td>
+                        <td className="px-5 py-5 border-b border-gray-200 w-36 bg-white text-sm">{standing.form}</td>
                     </tr>
                 );
               })

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+
 export default function ListLeagues(props) {
   const dataLeagues = [
     {
@@ -54,11 +55,12 @@ export default function ListLeagues(props) {
     
   ];
 
-  //console.log(leagues);
+ 
   return (
     <>
-    <div className="w-full text-center mt-5">
-        <div className="flex flex-row overflow-auto  space-x-12 w-4/5 mx-auto justify-between">
+
+    <div className="w-full text-center mt-5 ">
+        <div className="flex flex-row overflow-auto  space-x-12 w-4/5 mx-auto justify-between  border-b-2 border-gray-100 ">
       {dataLeagues.map((league) => {
         return (
       <div>
@@ -69,18 +71,22 @@ export default function ListLeagues(props) {
                   props.fetchLeagues(league.id)
                 } 
               }
-              
               key={league.id} 
               className="mt-5 mb-5 mr-10" href={league.root} >
                   {league.name}
                 </button>
               </div>
             </nav>
+            <div>
+              <img src={props.leagues} alt="" />
+            </div>
       </div>
         );
       })}
       </div>
+  
     </div>
+      
       
     </>
     

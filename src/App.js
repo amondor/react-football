@@ -43,7 +43,7 @@ function App() {
   }
   await axios.request(options).then( function (response) {
     setLeagues((response.data.response));
-    return 
+    return leagues;
   }).catch(function (error) {
     console.error(error);
   });
@@ -55,11 +55,11 @@ function App() {
 
   }, []);
   
- console.log(standings);
+ //console.log(leagues);
   return (
     <div className="App">
 
-     <ListLeagues fetchData={fetchData} fetchLeagues={fetchLeagues} />
+     <ListLeagues fetchData={fetchData} fetchLeagues={fetchLeagues} leagues={leagues} />
    
         
      <TableStandings standings={standings ? standings : []} />
