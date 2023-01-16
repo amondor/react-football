@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useState, useEffect}from "react";
 import LeagueCard from "./LeagueCard";
 
 
 export default function TableStandings(props) {
  
+  // const [league, setLeague] = useState()
+
+  // useEffect(() => {
+    
+  //   setLeague(props.fetchLeagues(39))
+  //   console.log(league)
+  //   return () => {
+      
+  //   }
+  // }, [])
+  
   return (
 
     <div className=" mt-5 w-full text-center">

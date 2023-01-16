@@ -11,7 +11,7 @@ function App() {
   
   
   const [standings, setStandings] = useState([]);
-  const [leagues, setLeagues] = useState([]);
+  //const [leagues, setLeagues] = useState([]);
   const fetchData = async (id) => {
     const options = {
       method: 'GET',
@@ -42,8 +42,8 @@ function App() {
       }
   }
   await axios.request(options).then( function (response) {
-    setLeagues((response.data.response));
-    return leagues;
+    console.log(response.data.response[0].league)
+    return ;
   }).catch(function (error) {
     console.error(error);
   });
@@ -59,7 +59,7 @@ function App() {
   return (
     <div className="App">
 
-     <ListLeagues fetchData={fetchData} fetchLeagues={fetchLeagues} leagues={leagues} />
+     <ListLeagues fetchData={fetchData} fetchLeagues={fetchLeagues} />
    
         
      <TableStandings standings={standings ? standings : []} />

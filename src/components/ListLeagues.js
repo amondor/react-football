@@ -6,13 +6,13 @@ export default function ListLeagues(props) {
   const dataLeagues = [
     {
       id: 61,
-      name: "Ligue 1",
+      name: "Ligue 1 🇫🇷",
       country: "France",
       root: "/ligue1"
     },
     {
       id: 62,
-      name: "Ligue 2",
+      name: "Ligue 2 🇫🇷",
       country: "France",
       root: "/ligue2"
     },
@@ -68,7 +68,7 @@ export default function ListLeagues(props) {
               <div className="">
                 <button onClick={() => {
                   props.fetchData(league.id)
-                  props.fetchLeagues(league.id)
+                 
                 } 
               }
               key={league.id} 
