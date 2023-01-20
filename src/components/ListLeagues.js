@@ -60,18 +60,19 @@ export default function ListLeagues(props) {
     <>
 
     <div className="w-full text-center mt-5 ">
-        <div className="flex flex-row overflow-auto  space-x-12 w-4/5 mx-auto justify-between  border-b-2 border-gray-100 ">
+      <div className="flex flex-row overflow-auto  space-x-12 w-4/5 mx-auto justify-between  border-b-2 border-gray-100 ">
       {dataLeagues.map((league) => {
         return (
-      <div>
+      <div
+      key={league.id} >
           <nav className=" ">
               <div className="">
                 <button onClick={() => {
-                  props.fetchData(league.id)
+                  props.handleClick(league.id)
                  
                 } 
               }
-              key={league.id} 
+             
               className="mt-5 mb-5 mr-10" href={league.root} >
                   {league.name}
                 </button>

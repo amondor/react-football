@@ -10,20 +10,25 @@ import axios from 'axios';
 function App() {
   
   
+  const [leagueId, setLeagueId] = useState(61); 
   const [standings, setStandings] = useState([]);
-  //const [leagues, setLeagues] = useState([]);
-  const fetchData = async (id) => {
+  
+  const fetchData = async () => {
     const options = {
       method: 'GET',
       url: 'https://api-football-v1.p.rapidapi.com/v3/standings',
-      params: {season: '2022', league: id ? id : 39},
+      params: {season: '2022', league: leagueId},
       headers: {
         'X-RapidAPI-Key': '7269d10b36msh1cb87fe4b3cdaf9p19bb9bjsne916fe1cbeca',
         'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
       }
     };
-    await axios.request(options).then( function (response) {
+
+      await axios.request(options).then( function (response) {
+      
       setStandings((response.data.response[0].league.standings[0]));
+      console.log(standings)
+   
       return
     }).catch(function (error) {
       console.error(error);
@@ -35,31 +40,39 @@ function App() {
     const options = {
       method: 'GET',
       url: 'https://api-football-v1.p.rapidapi.com/v3/leagues',
-      params: {id: id ? id : 39},
+      params: {id: leagueId},
       headers: {
         'X-RapidAPI-Key': '7269d10b36msh1cb87fe4b3cdaf9p19bb9bjsne916fe1cbeca',
         'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
       }
   }
   await axios.request(options).then( function (response) {
-    console.log(response.data.response[0].league)
+    //console.log(response.data.response[0].league)
     return ;
   }).catch(function (error) {
     console.error(error);
   });
   }
+  
+  const handleClick = (value) =>{
+    setLeagueId(value);
+    
+  }
 
+  console.log(leagueId)
   useEffect(() => {
     fetchData();
     fetchLeagues();
+   
 
-  }, []);
+  }, [leagueId]);
   
- //console.log(leagues);
+
+
   return (
     <div className="App">
 
-     <ListLeagues fetchData={fetchData} fetchLeagues={fetchLeagues} />
+     <ListLeagues handleClick={handleClick} fetchData={fetchData} fetchLeagues={fetchLeagues} />
    
         
      <TableStandings standings={standings ? standings : []} />
