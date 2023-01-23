@@ -81,7 +81,6 @@ function App() {
    fetchLeagues();
   }, [leagueId]);
 
-  //console.log(league);
   return (
     <div className="App">
       <ListLeagues
@@ -95,8 +94,6 @@ function App() {
         laLeague={league}
       />
 
-      {/* <BestStrikers /> */}
-      {/* <BestPassers /> */}
     </div>
   );
 }

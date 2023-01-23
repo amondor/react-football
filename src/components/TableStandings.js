@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function TableStandings(props) {
-
-  
-   console.log(props.laLeague);
-
+   
   return (
 
 
